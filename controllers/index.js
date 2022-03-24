@@ -67,14 +67,12 @@ const addReview = async (req,res) =>{
         await rev.save()
         const cost = await Coaster.findById(id)
 
-        if(cost){   
+        if(cost){
             cost.reviews.push(rev)
-            return res.status(200).send(`Added Review to ${cost.name}`)
+            cost.save()
+            return res.status(200).send(`Added Review to ${cost.rideName}`)
         }
             return res.status(404).send('Coaster with the specified ID does not exist');
-
-
-
     }
     catch (error) {
         return res.status(500).json({ error: error.message })
