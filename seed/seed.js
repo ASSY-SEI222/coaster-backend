@@ -22,20 +22,28 @@ const createState = async () =>{
 const createPark = async () =>{
     let parkSeed = [
         {
-            name: "Six Flags New England",
-            description: "Theme Park located in Massachusetts",
-            picture: ["https://i.ytimg.com/vi/ibgMHNhZexE/maxresdefault.jpg"],
-            location: "Massechusetts",
-            reviews:[],
-            coasters:[]
+            parkName: "Universal's Islands of Adventure",
+            location: "6000 Universal Blvd, Orlando, FL 32819"
         },
+    
         {
-            name: "Six Flags Great Adventure",
-            description: "Theme Park located in New Jersey, with a Safari!",
-            picture: ["https://i.ytimg.com/vi/uI6umjHJwok/maxresdefault.jpg"],
-            location: "New Jersey",
-            reviews:[],
-            coasters:[]
+            parkName: "Six Flags Great Adventure",
+            location: "1 Six Flags Blvd, Jackson Township, NJ 08527"
+        },
+    
+        {
+            parkName: "Six Flags New England",
+            location: "1623 Main St, Agawam, MA 01001"
+        },
+    
+        {
+            parkName: "Cedar Point",
+            location: "Perimeter Rd, Sandusky, OH 44870"
+        },
+    
+        {
+            parkName: "Busch Gardens Tampa",
+            location: " 10165 N McKinley Dr, Tampa, FL 33612",
         }
     ]
     await Park.insertMany(parkSeed)
@@ -117,7 +125,9 @@ const createCoasters = async () =>{
 
 const run = async () =>{
     try{
-        await createCoasters();
+        // await createCoasters();
+        await createPark();
+
     }
     catch (error) {
         console.log(error)
