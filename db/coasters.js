@@ -10,8 +10,8 @@ const parks = [
     },
 
     {
-        parkName: "Six Flags New England",
-        location: "1623 Main St, Agawam, MA 01001"
+        parkName: "Six Flags Great Adventure",
+        location: "1 Six Flags Blvd, Jackson Township, NJ 08527"
     },
 
     {
