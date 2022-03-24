@@ -3,6 +3,7 @@ const Schema = mongoose.Schema
 
 const Coaster = new Schema(
     {
+
         rideName:{ type: String, required: true},
         aboutRide:{ type: String, required: true},
         video:{ type: String, required: false},
@@ -12,6 +13,7 @@ const Coaster = new Schema(
         speed:{type: String, required: false},
         trackLength:{type: String, required: false},
         minHeight:{type: String, required: false},
+
         park:{type: Schema.Types.ObjectId, ref: 'park'},
         reviews:[{type: Schema.Types.ObjectId, ref: 'review'}]
     },
