@@ -10,8 +10,8 @@ const parks = [
     },
 
     {
-        parkName: "Six Flags New England",
-        location: "1623 Main St, Agawam, MA 01001"
+        parkName: "Six Flags Great Adventure",
+        location: "1 Six Flags Blvd, Jackson Township, NJ 08527"
     },
 
     {
@@ -92,7 +92,6 @@ const coasters = [
     trackLength: "3,983 ft",
     image: ["https://www.gannett-cdn.com/presto/2021/08/12/USAT/ffbb8790-19bc-4099-aad1-ec330d6080e3-montu-busch-gardens-tampa.jpg?width=2560"],
     video: "https://www.youtube.com/watch?v=0lcMhGhCBtQ&t=14s"
-   
 }
 
 ]
