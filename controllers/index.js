@@ -1,7 +1,9 @@
-const State = require('../models/state');
-const Coaster = require('../models/coaster');
-const Park = require('../models/park');
-const Review = require('../models/review');
+// const { State, Coaster, Park, Review } = require('../models/index');
+const { Coaster, Park, Review } = require('../models/');
+
+// const Coaster = require('../models/coaster.js');
+// const Park = require('../models/park');
+// const Review = require('../models/review');
 
 
 const createState = async (req, res) => {
@@ -16,10 +18,19 @@ const createState = async (req, res) => {
     }
 }
 
-const getAllStates = async (req, res) => {
+const getAllCoasters = async (req, res) => {
     try {
-        const states = await State.find()
-        return res.status(200).json({ states })
+        const coasters = await Coaster.find()
+        return res.status(200).json({ coasters })
+    } catch (error) {
+        return res.status(500).send(error.message);
+    }
+}
+
+const getAllParks = async (req, res) => {
+    try {
+        const parks = await Park.find()
+        return res.status(200).json({ parks })
     } catch (error) {
         return res.status(500).send(error.message);
     }
@@ -27,10 +38,22 @@ const getAllStates = async (req, res) => {
 
 const createPark = async (req, res) => {
     try {
-        const state = await new State(req.body)
-        await state.save()
+        const park = await new Park(req.body)
+        await park.save()
         return res.status(201).json({
-            state,
+            park,
+        });
+    } catch (error) {
+        return res.status(500).json({ error: error.message })
+    }
+}
+
+const createCoaster = async (req, res) => {
+    try {
+        const coaster = await new Coaster(req.body)
+        await coaster.save()
+        return res.status(201).json({
+            coaster,
         });
     } catch (error) {
         return res.status(500).json({ error: error.message })
@@ -39,6 +62,18 @@ const createPark = async (req, res) => {
 
 const addReview = async (req,res) =>{
     try{
+        const { id } = req.params
+        const rev = await new Review(req.body)
+        await rev.save()
+        const cost = await Coaster.findById(id)
+
+        if(cost){   
+            cost.reviews.push(rev)
+            return res.status(200).send(`Added Review to ${cost.name}`)
+        }
+            return res.status(404).send('Coaster with the specified ID does not exist');
+
+
 
     }
     catch (error) {
@@ -50,7 +85,9 @@ const addReview = async (req,res) =>{
 
 module.exports = {
     createState,
-    getAllStates,
+    getAllCoasters,
     createPark,
-    addReview
+    addReview,
+    getAllParks,
+    createCoaster
 }

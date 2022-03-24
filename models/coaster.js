@@ -5,7 +5,7 @@ const Coaster = new Schema(
     {
         name:{ type: String, required: true},
         description:{ type: String, required: true},
-        video:{ type: String, required: true},
+        video:{ type: String, required: false},
         picture:[{ type: String, required: true}],
         maxHeight:{type: Number, required: false},
         location: {type : String, required: true},
