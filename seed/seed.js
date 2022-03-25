@@ -24,31 +24,41 @@ const createPark = async () =>{
         {
             parkName: "Universal's Islands of Adventure",
             location: "6000 Universal Blvd, Orlando, FL 32819",
+
             picture: ["https://i.imgur.com/L7rq0HA.jpg"]
+
         },
     
         {
             parkName: "Six Flags Great Adventure",
             location: "1 Six Flags Blvd, Jackson Township, NJ 08527",
+
             picture: ["https://www.acadexthailand.com/wp-content/uploads/2015/09/SFFF.jpg"]
+
         },
     
         {
             parkName: "Six Flags Great Adventure",
             location: "1 Six Flags Blvd, Jackson Township, NJ 08527",
+
             picture: ["https://i.ytimg.com/vi/uI6umjHJwok/maxresdefault.jpg"]
+
         },
     
         {
             parkName: "Cedar Point",
             location: "Perimeter Rd, Sandusky, OH 44870",
+
             picture: ["https://workandtravelgroup.com/wp-content/uploads/cedar-point.jpg"]
+
         },
     
         {
             parkName: "Busch Gardens Tampa",
             location: " 10165 N McKinley Dr, Tampa, FL 33612",
+
             picture: ["https://i.ytimg.com/vi/ozhhuJa5KXE/maxresdefault.jpg"]
+
         }
     ]
     await Park.insertMany(parkSeed)
